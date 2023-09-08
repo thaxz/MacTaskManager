@@ -8,22 +8,25 @@
 import SwiftUI
 
 struct TaskListView: View {
-    
     let title: String
-    let tasks: [Task]
+    @Binding var tasks: [Task]
     
     var body: some View {
-        List(tasks){ task in
-            HStack {
-                Image(systemName: task.isCompleted ? "largecircle.fill.circle" : "circle")
-                Text(task.title)
+        List($tasks){ $task in
+            TaskView(task: $task)
+        }.toolbar {
+            Button {
+                tasks.append(Task(title: "New task!"))
+            } label: {
+                Label("Add new task", systemImage: "plus")
             }
+
         }
     }
 }
 
 struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskListView(title: "all", tasks: Task.examples())
+        TaskListView(title: "all", tasks: .constant(Task.examples()))
     }
 }

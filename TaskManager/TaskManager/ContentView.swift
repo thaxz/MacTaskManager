@@ -17,16 +17,15 @@ struct ContentView: View {
         NavigationSplitView {
             SideBarView(userCreatedGroups: $userCreatedGroups, selection: $selection)
         } detail: {
-            
             switch selection {
             case .all:
-                TaskListView(title: "All", tasks: allTasks)
+                TaskListView(title: "All", tasks: $allTasks)
             case .done:
-                TaskListView(title: "Done", tasks: allTasks.filter({$0.isCompleted}))
+                StaticTaskListView(title: "Done", tasks: allTasks.filter({$0.isCompleted}))
             case .upcoming:
-                TaskListView(title: "Upcoming", tasks: allTasks.filter({!$0.isCompleted}))
+                StaticTaskListView(title: "Upcoming", tasks: allTasks.filter({!$0.isCompleted}))
             case .list(let taskGroup):
-                TaskListView(title: taskGroup.title, tasks: taskGroup.tasks)
+                StaticTaskListView(title: taskGroup.title, tasks: taskGroup.tasks)
             }
         }
 
