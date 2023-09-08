@@ -12,6 +12,8 @@
 		E930901D2AABBC990043B7C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E930901C2AABBC990043B7C7 /* Assets.xcassets */; };
 		E93090202AABBC9A0043B7C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E930901E2AABBC9A0043B7C7 /* Main.storyboard */; };
 		E93090292AABBEA70043B7C7 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93090282AABBEA70043B7C7 /* Task.swift */; };
+		E930902B2AABBF940043B7C7 /* TaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930902A2AABBF940043B7C7 /* TaskGroup.swift */; };
+		E930902D2AABBFB00043B7C7 /* TaskSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930902C2AABBFB00043B7C7 /* TaskSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		E930901F2AABBC9A0043B7C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E93090212AABBC9A0043B7C7 /* TaskManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskManager.entitlements; sourceTree = "<group>"; };
 		E93090282AABBEA70043B7C7 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		E930902A2AABBF940043B7C7 /* TaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroup.swift; sourceTree = "<group>"; };
+		E930902C2AABBFB00043B7C7 /* TaskSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 			isa = PBXGroup;
 			children = (
 				E93090282AABBEA70043B7C7 /* Task.swift */,
+				E930902A2AABBF940043B7C7 /* TaskGroup.swift */,
+				E930902C2AABBFB00043B7C7 /* TaskSection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,6 +150,8 @@
 			files = (
 				E93090292AABBEA70043B7C7 /* Task.swift in Sources */,
 				E930901B2AABBC980043B7C7 /* ViewController.swift in Sources */,
+				E930902D2AABBFB00043B7C7 /* TaskSection.swift in Sources */,
+				E930902B2AABBF940043B7C7 /* TaskGroup.swift in Sources */,
 				E93090192AABBC980043B7C7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
