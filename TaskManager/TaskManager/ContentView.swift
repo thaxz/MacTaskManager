@@ -15,7 +15,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationSplitView {
-            SideBarView(userCreatedGroups: userCreatedGroups, selection: $selection)
+            SideBarView(userCreatedGroups: $userCreatedGroups, selection: $selection)
         } detail: {
             
             switch selection {
