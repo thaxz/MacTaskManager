@@ -10,7 +10,8 @@ import SwiftUI
 struct SideBarView: View {
     
     let userCreatedGroups: [TaskGroup]
-    @State private var selection = TaskSection.allCases
+    
+    @Binding var selection: TaskSection
     
     var body: some View {
         List(selection: $selection){
@@ -36,7 +37,7 @@ struct SideBarView: View {
 
 struct SideBarView_Previews: PreviewProvider {
     static var previews: some View {
-        SideBarView(userCreatedGroups: TaskGroup.examples())
+        SideBarView(userCreatedGroups: TaskGroup.examples(), selection: .constant(.all))
             .listStyle(.sidebar)
     }
 }
