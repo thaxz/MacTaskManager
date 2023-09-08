@@ -46,13 +46,13 @@ enum TaskSection: Identifiable, CaseIterable, Hashable {
     var iconName: String {
         switch self {
         case .all:
-            return    "star"
+            return  "star"
         case .done:
-            return    "checkmark.circle"
+            return "checkmark.circle"
         case .upcoming:
-            return    "calendar"
+            return "calendar"
         case .list(_):
-            return    "folder"
+            return "folder"
         }
     }
     
