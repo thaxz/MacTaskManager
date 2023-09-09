@@ -30,6 +30,14 @@ struct SideBarView: View {
                     }
                     Label(group.title, systemImage: "folder")
                         .tag(TaskSection.list(group))
+                        .contextMenu{
+                            Button("Delete", role: .destructive) {
+                                // deleting the selected group
+                                if let index = userCreatedGroups.firstIndex(where: {$0.id == group.id}){
+                                    userCreatedGroups.remove(at: index)
+                                }
+                            }
+                        }
                 }
             }
         }
