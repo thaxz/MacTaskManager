@@ -45,4 +45,11 @@ extension CDTask {
         self.uuid_ = UUID()
     }
     
+    // MARK: Preview Helper
+    static var mockTest: CDTask {
+        let context = PersistenceController.preview.container.viewContext
+        let task = CDTask(title: "Listen to Folklore", dueDate: Date(), context: context)
+        return task
+    }
+    
 }

@@ -30,4 +30,16 @@ class PersistenceController {
         }
     }
     
+    // MARK: SwiftUI Preview Helper
+    
+    static var preview: PersistenceController = {
+        let controller = PersistenceController(inMemory: true)
+        let context = controller.container.viewContext
+        // creating mock tasks
+        for index in 0..<10 {
+            let task = CDTask(title: "Mock Task nº \(index)", dueDate: Date(), context: context)
+        }
+        return controller
+    }()
+    
 }

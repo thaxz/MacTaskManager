@@ -122,8 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				E9673EAD2AAE725C008A5739 /* TaskManager.xcdatamodeld */,
-				E9673EB52AAE7576008A5739 /* Helpers */,
 				E9673EB82AAE7880008A5739 /* PersistenceController.swift */,
+				E9673EB52AAE7576008A5739 /* Helpers */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";

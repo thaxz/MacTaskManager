@@ -23,8 +23,8 @@ struct TaskRow: View {
     }
 }
 
-//struct TaskRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TaskRow()
-//    }
-//}
+struct TaskRow_Previews: PreviewProvider {
+    static var previews: some View {
+        TaskRow(task: CDTask.mockTest)
+    }
+}

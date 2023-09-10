@@ -43,4 +43,11 @@ extension CDTaskGroup {
         self.creationDate_ = Date()
     }
     
+    // MARK: Preview Helper
+    static var mockTest: CDTaskGroup {
+        let context = PersistenceController.preview.container.viewContext
+        let taskGroup = CDTaskGroup(title: "Eras Tour", context: context)
+        return taskGroup
+    }
+    
 }
