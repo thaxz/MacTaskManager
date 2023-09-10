@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 // MARK: Extending to make this attributes non-optional
 
@@ -28,6 +29,18 @@ extension CDTaskGroup {
     
     var creationDate: Date {
         creationDate_ ?? Date()
+    }
+    
+    // Convenience init
+    convenience init(title: String, context: NSManagedObjectContext){
+        self.init(context: context)
+        self.title = title
+    }
+    
+    // Called every time this object is created
+    public override func awakeFromInsert() {
+        self.uuid_ = UUID()
+        self.creationDate_ = Date()
     }
     
 }

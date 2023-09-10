@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 // MARK: Extending to make this attributes non-optional
 
@@ -31,4 +32,17 @@ extension CDTask {
         get { dueDate_ ?? Date() }
         set { dueDate_ = newValue }
     }
+    
+    // Convenience init
+    convenience init(title: String, dueDate: Date, context: NSManagedObjectContext){
+        self.init(context: context)
+        self.title = title
+        self.dueDate = dueDate
+    }
+    
+    // Called every time this object is created
+    public override func awakeFromInsert() {
+        self.uuid_ = UUID()
+    }
+    
 }
