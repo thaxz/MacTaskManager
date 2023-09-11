@@ -39,6 +39,10 @@ class PersistenceController {
         for index in 0..<10 {
             let task = CDTask(title: "Mock Task nº \(index)", dueDate: Date(), context: context)
         }
+        
+        let doneTask = CDTask(title: "Done", dueDate: Date(), context: context)
+        doneTask.isCompleted.toggle()
+        
         return controller
     }()
     

@@ -15,6 +15,7 @@ struct TaskManagerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, persistentController.container.viewContext)
         }
         .commands {
             CommandMenu("Task") {
