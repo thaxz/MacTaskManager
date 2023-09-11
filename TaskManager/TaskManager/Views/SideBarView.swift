@@ -22,7 +22,7 @@ struct SideBarView: View {
         List(selection: $selection){
             Section("Favorites") {
                 ForEach(TaskSection.allCases){ selection in
-                    Label(selection.iconName, systemImage: selection.iconName)
+                    Label(selection.displayName, systemImage: selection.iconName)
                         .tag(selection)
                 }
             }

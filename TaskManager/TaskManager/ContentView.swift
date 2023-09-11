@@ -19,11 +19,7 @@ struct ContentView: View {
         NavigationSplitView {
             SideBarView(selection: $selection)
         } detail: {
-            if searchTerm.isEmpty {
-                    TaskListView(title: "All", selection: selection)
-            } else {
-                StaticTaskListView(title: "All", tasks: allTasks.filter({$0.title.contains(searchTerm)}))
-            }
+                    TaskListView(title: "All", selection: selection, searchTerm: searchTerm)
         }
         .searchable(text: $searchTerm)
         

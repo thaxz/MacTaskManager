@@ -18,21 +18,28 @@ struct TaskListView: View {
     // the group that tasks are connected in
     let group: CDTaskGroup?
     
-    init(title: String, selection: TaskSection?) {
+    init(title: String, selection: TaskSection?, searchTerm: String) {
         self.title = title
         var request = CDTask.fetch()
-        switch selection {
-        case .all:
-            request.predicate = nil
-        case .done:
-            request.predicate = NSPredicate(format: "isCompleted == true")
-        case .upcoming:
-            request.predicate = NSPredicate(format: "isCompleted == false")
-        case .list(let group):
-            request.predicate = NSPredicate(format: "group == %@", group as CVarArg )
-        case nil:
-            request.predicate = .none
+        
+        if searchTerm.isEmpty {
+            switch selection {
+            case .all:
+                request.predicate = nil
+            case .done:
+                request.predicate = NSPredicate(format: "isCompleted == true")
+            case .upcoming:
+                request.predicate = NSPredicate(format: "isCompleted == false")
+            case .list(let group):
+                request.predicate = NSPredicate(format: "group == %@", group as CVarArg )
+            case nil:
+                request.predicate = .none
+            }
+        } else {
+            request.predicate = NSPredicate(format: "%K CONTAINS[cd] %@", "title_", searchTerm as CVarArg)
         }
+        
+        
         
         switch selection {
         case .all, .done, .upcoming:
@@ -63,7 +70,7 @@ struct TaskListView: View {
 
 struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskListView(title: "all", selection: .list(CDTaskGroup.mockTest))
+        TaskListView(title: "all", selection: .list(CDTaskGroup.mockTest), searchTerm: "")
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
