@@ -49,6 +49,17 @@ extension CDTaskGroup {
         context.delete(taskGroup)
     }
     
+    // Fetch
+    static func fetch(_ predicate: NSPredicate = .all) -> NSFetchRequest<CDTaskGroup> {
+        let request = CDTaskGroup.fetchRequest()
+        // sorting tasks by the dueDate
+        // if two objects shares the same Date, it's sorted by name
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \CDTaskGroup.title_, ascending: true), NSSortDescriptor(keyPath: \CDTaskGroup.creationDate_, ascending: true)
+        ]
+        request.predicate = predicate
+        return request
+    }
+    
     // MARK: Preview Helper
     static var mockTest: CDTaskGroup {
         let context = PersistenceController.preview.container.viewContext

@@ -51,6 +51,17 @@ extension CDTask {
         context.delete(task)
     }
     
+    // Fetch
+    static func fetch(_ predicate: NSPredicate = .all) -> NSFetchRequest<CDTask> {
+        let request = CDTask.fetchRequest()
+        // sorting tasks by the dueDate
+        // if two objects shares the same Date, it's sorted by name
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \CDTask.dueDate_, ascending: true), NSSortDescriptor(keyPath: \CDTask.title, ascending: true)
+        ]
+        request.predicate = predicate
+        return request
+    }
+    
     // MARK: Preview Helper
     static var mockTest: CDTask {
         let context = PersistenceController.preview.container.viewContext
