@@ -56,7 +56,7 @@ extension CDTask {
         let request = CDTask.fetchRequest()
         // sorting tasks by the dueDate
         // if two objects shares the same Date, it's sorted by name
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \CDTask.dueDate_, ascending: true), NSSortDescriptor(keyPath: \CDTask.title, ascending: true)
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \CDTask.dueDate_, ascending: true), NSSortDescriptor(keyPath: \CDTask.title_, ascending: true)
         ]
         request.predicate = predicate
         return request

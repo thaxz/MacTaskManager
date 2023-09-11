@@ -24,7 +24,7 @@ struct ContentView: View {
             if searchTerm.isEmpty {
                 switch selection {
                 case .all:
-                    TaskListView(title: "All", tasks: $allTasks)
+                    TaskListView(title: "All")
                 case .done:
                     StaticTaskListView(title: "Done", tasks: allTasks.filter({$0.isCompleted}))
                 case .upcoming:

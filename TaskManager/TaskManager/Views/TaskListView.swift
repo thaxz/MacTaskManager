@@ -6,18 +6,21 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct TaskListView: View {
     
     let title: String
-    @Binding var tasks: [Task]
+    // Fetching all tasks from coredata
+    @FetchRequest(fetchRequest: CDTask.fetch(), animation: .easeIn) var tasks
+    @Environment(\.managedObjectContext) var context
     
     var body: some View {
-        List($tasks){ $task in
-            TaskView(task: $task)
+        List(tasks){ task in
+            TaskRow(task: task)
         }.toolbar {
             Button {
-                tasks.append(Task(title: "New task!"))
+                _ = CDTask(title: "New", dueDate: Date(), context: context)
             } label: {
                 Label("Add new task", systemImage: "plus")
             }
@@ -28,6 +31,7 @@ struct TaskListView: View {
 
 struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskListView(title: "all", tasks: .constant(Task.examples()))
+        TaskListView(title: "all")
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
