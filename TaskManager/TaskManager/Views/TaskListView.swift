@@ -60,6 +60,7 @@ struct TaskListView: View {
             Button {
                 let task = CDTask(title: "New", dueDate: Date(), context: context)
                 task.group = group
+                PersistenceController.shared.save()
             } label: {
                 Label("Add new task", systemImage: "plus")
             }

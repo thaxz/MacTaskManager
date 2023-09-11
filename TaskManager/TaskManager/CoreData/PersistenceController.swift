@@ -30,6 +30,18 @@ class PersistenceController {
         }
     }
     
+    // Save
+    func save(){
+        let context = container.viewContext
+        // if there's no chanages it wont be saving
+        guard context.hasChanges else {return}
+        do {
+            try context.save()
+        } catch {
+            print("error saving context: \(error)")
+        }
+    }
+    
     // MARK: SwiftUI Preview Helper
     
     static var preview: PersistenceController = {

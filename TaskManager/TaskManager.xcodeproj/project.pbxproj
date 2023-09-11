@@ -17,7 +17,6 @@
 		E93090542AABC5F70043B7C7 /* TaskGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93090532AABC5F70043B7C7 /* TaskGroup.swift */; };
 		E93090562AABC60C0043B7C7 /* TaskSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93090552AABC60C0043B7C7 /* TaskSection.swift */; };
 		E93090592AABC6330043B7C7 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93090582AABC6330043B7C7 /* SideBarView.swift */; };
-		E930905B2AABC65F0043B7C7 /* StaticTaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930905A2AABC65F0043B7C7 /* StaticTaskListView.swift */; };
 		E9673EAF2AAE725C008A5739 /* TaskManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9673EAD2AAE725C008A5739 /* TaskManager.xcdatamodeld */; };
 		E9673EB12AAE7339008A5739 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9673EB02AAE7339008A5739 /* TaskRow.swift */; };
 		E9673EB42AAE73E5008A5739 /* CDTask+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9673EB32AAE73E5008A5739 /* CDTask+Helper.swift */; };
@@ -40,7 +39,6 @@
 		E93090532AABC5F70043B7C7 /* TaskGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskGroup.swift; sourceTree = "<group>"; };
 		E93090552AABC60C0043B7C7 /* TaskSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSection.swift; sourceTree = "<group>"; };
 		E93090582AABC6330043B7C7 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
-		E930905A2AABC65F0043B7C7 /* StaticTaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticTaskListView.swift; sourceTree = "<group>"; };
 		E9673EAE2AAE725C008A5739 /* TaskManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskManager.xcdatamodel; sourceTree = "<group>"; };
 		E9673EB02AAE7339008A5739 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		E9673EB32AAE73E5008A5739 /* CDTask+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDTask+Helper.swift"; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				E93090582AABC6330043B7C7 /* SideBarView.swift */,
-				E930905A2AABC65F0043B7C7 /* StaticTaskListView.swift */,
 				E9B7E83E2AABD54C00822874 /* TaskListView.swift */,
 				E9B7E8402AABD60D00822874 /* TaskView.swift */,
 				E9673EB22AAE7378008A5739 /* Components */,
@@ -231,7 +228,6 @@
 			files = (
 				E9B7E8412AABD60D00822874 /* TaskView.swift in Sources */,
 				E9673EB92AAE7880008A5739 /* PersistenceController.swift in Sources */,
-				E930905B2AABC65F0043B7C7 /* StaticTaskListView.swift in Sources */,
 				E9673EAF2AAE725C008A5739 /* TaskManager.xcdatamodeld in Sources */,
 				E93090442AABC5C50043B7C7 /* ContentView.swift in Sources */,
 				E923138F2AAF35D700C150E9 /* TaskGroupRow.swift in Sources */,
