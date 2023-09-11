@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct TaskManagerApp: App {
+    
+    let persistentController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

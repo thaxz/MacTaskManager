@@ -15,7 +15,7 @@ enum TaskSection: Identifiable, CaseIterable, Hashable {
     case all
     case done
     case upcoming
-    case list(TaskGroup)
+    case list(CDTaskGroup)
     
     var id: String {
         switch self {
@@ -26,7 +26,7 @@ enum TaskSection: Identifiable, CaseIterable, Hashable {
         case .upcoming:
             return  "upcoming"
         case .list(let taskGroup):
-            return taskGroup.id.uuidString
+            return taskGroup.uuid.uuidString
         }
     }
     

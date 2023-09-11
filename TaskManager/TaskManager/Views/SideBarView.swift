@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SideBarView: View {
     
-    @Binding var userCreatedGroups: [TaskGroup]
+    // Getting context
+    @Environment(\.managedObjectContext) var context
+    // Fetching request from core data go get all taskGroups created by the user
+    @FetchRequest(fetchRequest: CDTaskGroup.fetch(), animation: .easeIn)
+    var taskGroups: FetchedResults<CDTaskGroup>
     
     @Binding var selection: TaskSection
     
@@ -23,19 +28,13 @@ struct SideBarView: View {
             }
             
             Section("Your Groups") {
-                ForEach($userCreatedGroups){ $group in
-                    HStack {
-                        Image(systemName: "folder")
-                        TextField("New Group", text: $group.title)
-                    }
-                    Label(group.title, systemImage: "folder")
+                ForEach(taskGroups){ group in
+                    TaskGroupRow(taskGroup: group)
                         .tag(TaskSection.list(group))
                         .contextMenu{
                             Button("Delete", role: .destructive) {
                                 // deleting the selected group
-                                if let index = userCreatedGroups.firstIndex(where: {$0.id == group.id}){
-                                    userCreatedGroups.remove(at: index)
-                                }
+                                CDTaskGroup.delete(taskGroup: group)
                             }
                         }
                 }
@@ -43,8 +42,7 @@ struct SideBarView: View {
         }
         .safeAreaInset(edge: .bottom) {
             Button {
-                let newGroup = TaskGroup(title: "New Group")
-                userCreatedGroups.append(newGroup)
+                let newGroup = CDTaskGroup(title: "New", context: context)
             } label: {
                 Label("Add Group", systemImage: "plus.circle")
             }.buttonStyle(.borderless)
@@ -58,7 +56,8 @@ struct SideBarView: View {
 
 struct SideBarView_Previews: PreviewProvider {
     static var previews: some View {
-        SideBarView(userCreatedGroups: .constant(TaskGroup.examples()), selection: .constant(.all))
+        SideBarView(selection: .constant(.all))
             .listStyle(.sidebar)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
