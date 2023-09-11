@@ -45,6 +45,12 @@ extension CDTask {
         self.uuid_ = UUID()
     }
     
+    // Delete
+    static func delete(task: CDTask){
+        guard let context = task.managedObjectContext else {return}
+        context.delete(task)
+    }
+    
     // MARK: Preview Helper
     static var mockTest: CDTask {
         let context = PersistenceController.preview.container.viewContext

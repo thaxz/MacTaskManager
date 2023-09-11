@@ -43,6 +43,12 @@ extension CDTaskGroup {
         self.creationDate_ = Date()
     }
     
+    // Delete
+    static func delete(taskGroup: CDTaskGroup){
+        guard let context = taskGroup.managedObjectContext else {return}
+        context.delete(taskGroup)
+    }
+    
     // MARK: Preview Helper
     static var mockTest: CDTaskGroup {
         let context = PersistenceController.preview.container.viewContext
