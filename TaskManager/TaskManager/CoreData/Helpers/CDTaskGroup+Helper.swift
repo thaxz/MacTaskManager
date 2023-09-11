@@ -31,6 +31,11 @@ extension CDTaskGroup {
         creationDate_ ?? Date()
     }
     
+    var tasks: Set<CDTask> {
+        get {(tasks as? Set<CDTask>) ?? []}
+        set {tasks_ = newValue as NSSet}
+    }
+    
     // Convenience init
     convenience init(title: String, context: NSManagedObjectContext){
         self.init(context: context)
@@ -42,6 +47,8 @@ extension CDTaskGroup {
         self.uuid_ = UUID()
         self.creationDate_ = Date()
     }
+    
+    //MARK: CRUD
     
     // Delete
     static func delete(taskGroup: CDTaskGroup){
@@ -64,6 +71,7 @@ extension CDTaskGroup {
     static var mockTest: CDTaskGroup {
         let context = PersistenceController.preview.container.viewContext
         let taskGroup = CDTaskGroup(title: "Eras Tour", context: context)
+        taskGroup.tasks.insert(CDTask.mockTest)
         return taskGroup
     }
     

@@ -20,13 +20,7 @@ struct ContentView: View {
             SideBarView(selection: $selection)
         } detail: {
             if searchTerm.isEmpty {
-                switch selection {
-                case .all, .done, .upcoming :
                     TaskListView(title: "All", selection: selection)
-                case .list(let taskGroup):
-//                    StaticTaskListView(title: taskGroup.title, tasks: taskGroup.tasks)
-                    Text("placeholder")
-                }
             } else {
                 StaticTaskListView(title: "All", tasks: allTasks.filter({$0.title.contains(searchTerm)}))
             }
